@@ -63,7 +63,9 @@ cd college_admission_system
 - Run CollegeAdmissionSystemApplication.java
 
 4 Access the App
-http://localhost:8080/
+http://localhost:8080/login
+User: admin
+Password: admin123
 
 
 
