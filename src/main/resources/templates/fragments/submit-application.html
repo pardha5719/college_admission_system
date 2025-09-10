@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Submit Application</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/submit.css}">
+</head>
+<body>
+    <div class="bg-light min-vh-100 d-flex justify-content-center align-items-center">
+        <div class="form-wrapper container p-5 bg-white rounded-4 shadow-lg" style="max-width: 650px;">
+            <h2 class="text-center text-primary mb-4">Submit Application</h2>
+
+            <!-- Error Message -->
+            <div th:if="${error}" class="alert alert-danger text-center mb-4">
+                <p th:text="${error}"></p>
+            </div>
+
+            <form th:action="@{/admin/applications/submit}" method="post">
+                <!-- Student Selection -->
+                <div class="mb-4">
+                    <label for="studentId" class="form-label fw-semibold">Select Student</label>
+                    <select name="studentId" class="form-select form-control-lg" required>
+                        <option th:each="student : ${students}"
+                                th:value="${student.id}"
+                                th:text="${student.name}"
+                                th:selected="${student.id == selectedStudentId}">
+                        </option>
+                    </select>
+                </div>
+
+                <!-- Course Selection -->
+                <div class="mb-4">
+                    <label for="courseId" class="form-label fw-semibold">Select Course</label>
+                    <select name="courseId" class="form-select form-control-lg" required>
+                        <option th:each="course : ${courses}"
+                                th:value="${course.id}"
+                                th:text="${course.name}"
+                                th:selected="${course.id == selectedCourseId}">
+                        </option>
+                    </select>
+                </div>
+
+                <!-- Optional Registered Course Display -->
+                <div th:if="${registeredCourseName}" class="mb-4">
+                    <label class="form-label fw-semibold">Registered Course</label>
+                    <input type="text" th:value="${registeredCourseName}" readonly class="form-control form-control-lg">
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-primary w-100 py-2 fw-bold">Submit Application</button>
+            </form>
+
+            <!-- Back to Dashboard -->
+			<div class="d-flex justify-content-center mt-4">
+			    <form th:action="@{/admin/dashboard}" method="get">
+			        <button type="submit" class="btn btn-outline-secondary px-4 py-2 fw-bold">
+			            Back to Dashboard
+			        </button>
+			    </form>
+			</div>
+        </div>
+    </div>
+
+    <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

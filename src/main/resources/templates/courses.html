@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Courses</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+	<link rel="stylesheet" th:href="@{/course.css}">
+
+</head>
+<body>
+
+<!-- Header Fragment -->
+<div th:replace="fragments/header :: header"></div>
+
+<div class="container mt-5">
+	<div class="mb-3 text-start">
+	    <button type="button"
+	            class="btn btn-dashboard"
+	            onclick="location.href='/admin/dashboard'">
+	        ← Back to Dashboard
+	    </button>
+	</div>
+    <h2 class="mb-4">Courses Offered</h2>
+	<table class="table table-bordered">
+	    <thead class="table-primary text-center">
+	        <tr>
+	            <th>Course Name</th>
+	            <th>Cutoff Marks</th>
+	            <th>Actions</th>
+	        </tr>
+	    </thead>
+	    <tbody>
+	        <tr th:each="course : ${courses}">
+	            <td th:text="${course.name}"></td>
+	            <td th:text="${course.cutoffMarks}"></td>
+				<td class="text-center">
+				    <div class="d-flex justify-content-center gap-2">
+						<button type="button"
+						                class="btn btn-edit"
+						                th:onclick="'location.href=\'/admin/courses/edit-cutoff/' + ${course.id} + '\''">
+						            Edit Cutoff
+						 </button>
+				        <form th:action="@{'/admin/courses/delete/' + ${course.id}}" method="post">
+				            <button type="submit" class="btn btn-delete"
+				                    onclick="return confirm('Are you sure you want to delete this course?');">
+				                Delete
+				            </button>
+				        </form>
+				    </div>
+				</td>
+	        </tr>
+	    </tbody>
+	</table>
+</div>
+
+<!-- Footer Fragment -->
+<div th:replace="fragments/footer :: footer"></div>
+
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

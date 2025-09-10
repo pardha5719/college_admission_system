@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pending Applications</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/application-review.css}">
+</head>
+<body>
+
+    <div class="container-fluid px-5 py-4">
+        <!-- Title at the top -->
+        <div class="text-center mb-4">
+            <h1 class="dashboard-title">Pending Applications</h1>
+        </div>
+
+        <!-- Dashboard-style button row -->
+        <div class="dashboard-buttons d-flex flex-wrap justify-content-center gap-4 mb-5">
+            <button onclick="location.href='/admin/dashboard'" class="btn btn-primary dashboard-btn">Dashboard</button>
+            <button onclick="location.href='/admin/students/register'" class="btn btn-success dashboard-btn">Register Student</button>
+            <button onclick="location.href='/admin/students'" class="btn btn-dark dashboard-btn">Manage Students</button>
+            <button onclick="location.href='/admin/courses/add'" class="btn btn-secondary dashboard-btn">Add Course</button>
+            <button onclick="location.href='/admin/courses/view'" class="btn btn-info dashboard-btn">View Courses</button>
+            <button onclick="location.href='/admin/applications/form'" class="btn btn-warning dashboard-btn">Submit Application</button>
+            <button onclick="location.href='/admin/applications'" class="btn btn-danger dashboard-btn">Review Applications</button>
+        </div>
+
+        <!-- No Applications Message -->
+        <div th:block th:if="${applications != null and applications.size() == 0}">
+            <p class="text-muted text-center">No applications found.</p>
+        </div>
+
+        <!-- Applications Table -->
+        <div class="table-responsive" th:if="${applications.size() > 0}">
+            <table class="table table-bordered table-hover align-middle shadow-sm">
+                <thead class="table-dark text-center">
+                    <tr>
+                        <th>Application ID</th>
+                        <th>Student Name</th>
+                        <th>Course Applied</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="app : ${applications}">
+                        <td th:text="${app.id}">1</td>
+                        <td th:text="${app.student != null ? app.student.name : 'N/A'}">Mukesh Ladi</td>
+                        <td th:text="${app.course != null ? app.course.name : 'N/A'}">Mechanical</td>
+                        <td>
+                            <span th:class="${app.status == null ? 'badge bg-secondary' :
+                                            app.status.equals('Pending') ? 'badge bg-warning text-dark' :
+                                            app.status.equals('Approved') ? 'badge bg-success' :
+                                            app.status.equals('Rejected') ? 'badge bg-danger' :
+                                            'badge bg-secondary'}"
+                                  th:text="${app.status != null ? app.status : 'Unknown'}">Pending</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

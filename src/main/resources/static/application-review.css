@@ -1,0 +1,196 @@
+/* Base Layout */
+body {
+    background-color: #fdfdfd;
+    font-family: 'Times New Roman', Times, serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container-fluid {
+    padding: 2rem 3rem;
+}
+
+/* Title */
+.dashboard-title {
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: #212529;
+    margin-bottom: 1rem;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* Button Row */
+.dashboard-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+/* Button Styling */
+.dashboard-btn {
+    padding: 0.6rem 1.4rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    background-color: transparent;
+    transition: all 0.3s ease;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* Individual Button Themes */
+.btn-primary.dashboard-btn {
+    border-color: #0d6efd;
+    color: #0d6efd;
+}
+.btn-primary.dashboard-btn:hover {
+    background-color: #0d6efd;
+    color: #fff;
+}
+
+.btn-success.dashboard-btn {
+    border-color: #198754;
+    color: #198754;
+}
+.btn-success.dashboard-btn:hover {
+    background-color: #198754;
+    color: #fff;
+}
+
+.btn-dark.dashboard-btn {
+    border-color: #212529;
+    color: #212529;
+}
+.btn-dark.dashboard-btn:hover {
+    background-color: #212529;
+    color: #fff;
+}
+
+.btn-secondary.dashboard-btn {
+    border-color: #6c757d;
+    color: #6c757d;
+}
+.btn-secondary.dashboard-btn:hover {
+    background-color: #6c757d;
+    color: #fff;
+}
+
+.btn-info.dashboard-btn {
+    border-color: #0dcaf0;
+    color: #0dcaf0;
+}
+.btn-info.dashboard-btn:hover {
+    background-color: #0dcaf0;
+    color: #fff;
+}
+
+.btn-warning.dashboard-btn {
+    border-color: #ffc107;
+    color: #ffc107;
+}
+.btn-warning.dashboard-btn:hover {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+.btn-danger.dashboard-btn {
+    border-color: #dc3545;
+    color: #dc3545;
+}
+.btn-danger.dashboard-btn:hover {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+/* 📊 Table Styling */
+.table-responsive {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.table th, .table td {
+    text-align: center;
+    padding: 0.75rem;
+    font-size: 1rem;
+    vertical-align: middle;
+}
+
+.table thead {
+    background-color: #343a40;
+    color: #fff;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f1f3f5;
+}
+
+/* Status Badges */
+.badge {
+    font-size: 0.9rem;
+    padding: 0.4em 0.8em;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/*Responsive Tweaks */
+@media (max-width: 768px) {
+    .dashboard-title {
+        font-size: 2rem;
+    }
+
+    .dashboard-btn {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .table th, .table td {
+        font-size: 0.9rem;
+    }
+}
+
+/* Status Badges */
+.badge {
+    font-size: 0.9rem;
+    padding: 0.4em 0.8em;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* Approved */
+.badge.bg-success {
+    background-color: #198754;
+    color: #fff;
+}
+
+/* Rejected */
+.badge.bg-danger {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+/* Pending */
+.badge.bg-warning {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+/* Unknown or Null */
+.badge.bg-secondary {
+    background-color: #6c757d;
+    color: #fff;
+}

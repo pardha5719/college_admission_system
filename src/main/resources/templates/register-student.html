@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register Student</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/reg.css}">
+</head>
+<body>
+    <div class="d-flex justify-content-center align-items-center vh-100 bg-light">
+        <div class="container bg-white p-5 rounded shadow" style="max-width: 600px;">
+            <h2 class="text-center mb-4 text-primary">Register Student</h2>
+
+            <form th:action="@{/admin/students/save}" th:object="${student}" method="post">
+                <input type="hidden" th:field="*{id}">
+				
+				<div class="mb-3 text-start">
+				    <button type="button"
+				            class="btn btn-dashboard"
+				            onclick="location.href='/admin/dashboard'">
+				        ← Back to Dashboard
+				    </button>
+				</div>
+
+                <div class="mb-4">
+                    <label class="form-label fw-bold">Name</label>
+                    <input type="text" th:field="*{name}" class="form-control" required>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label fw-bold">Email</label>
+                    <input type="email" th:field="*{email}" class="form-control" required>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label fw-bold">Course</label>
+                    <select th:field="*{course}" class="form-select" required>
+                        <option value="" disabled selected>Select a course</option>
+                        <option th:each="course : ${courses}" th:value="${course.id}" th:text="${course.name}"></option>
+                    </select>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label fw-bold">Marks</label>
+                    <input type="number" th:field="*{marks}" class="form-control" required>
+                </div>
+
+				<div class="d-flex justify-content-between mt-4">
+				    <button type="submit" class="btn btn-primary fw-bold px-4 py-2">Register</button>
+
+				    <form th:action="@{/admin/students}" method="get">
+				        <button type="submit" class="btn btn-outline-secondary fw-bold px-4 py-2">Cancel</button>
+				    </form>
+				</div>
+            </form>
+        </div>
+    </div>
+
+    <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Cutoff Marks</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+	<link rel="stylesheet" th:href="@{/edit-cutoff.css}">
+</head>
+<body>
+<div class="container mt-5">
+    <div class="bg-white p-4 rounded shadow" style="max-width: 500px; margin: auto;">
+        <h2 class="text-center text-primary mb-4">Edit Cutoff Marks</h2>
+
+        <form th:action="@{/admin/courses/update-cutoff}" method="post">
+            <input type="hidden" name="courseId" th:value="${course.id}" />
+
+            <div class="mb-3">
+                <label class="form-label fw-bold">Course Name:</label>
+                <input type="text" class="form-control" th:value="${course.name}" readonly />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label fw-bold">Current Cutoff Marks:</label>
+                <input type="number" name="cutoffMarks" class="form-control" th:value="${course.cutoffMarks}" required />
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100 fw-bold">Update Cutoff</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

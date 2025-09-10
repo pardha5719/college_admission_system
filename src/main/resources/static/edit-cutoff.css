@@ -1,0 +1,102 @@
+/* Fullscreen Background */
+body {
+    background-color: white;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Form Container */
+.form-wrapper {
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    padding: 3rem;
+    max-width: 500px;
+    width: 100%;
+}
+
+/* Title */
+h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #0d6efd;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Labels */
+.form-label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 0.5rem;
+}
+
+/* Input Fields */
+input[type="text"],
+input[type="number"] {
+    font-size: 1rem;
+    padding: 0.75rem;
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+    background-color: #ffffff;
+    margin-bottom: 1.5rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Update Button */
+.btn-primary {
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.75rem;
+    border-radius: 8px;
+    width: 100%;
+    background-color: #0d6efd;
+    color: #fff;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0b5ed7;
+}
+
+/* Cancel Button */
+.btn-outline-secondary {
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    padding: 0.6rem 1.5rem;
+    margin-top: 1rem;
+    background-color: #ffffff;
+    color: #000;
+    border: 1px solid #ced4da;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #6c757d;
+    color: #fff;
+}
+
+/* Responsive Design */
+@media (max-width: 576px) {
+    .form-wrapper {
+        padding: 2rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    .btn-primary,
+    .btn-outline-secondary {
+        font-size: 0.95rem;
+    }
+}
